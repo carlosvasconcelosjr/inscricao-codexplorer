@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrição - Codexplorer</title>
+    <style>
+        /* Variáveis de Cores (Dark Mode Elegante) */
+        :root {
+            --bg-dark: #0d1117;
+            --bg-card: #161b22;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --primary-color: #238636;
+            --primary-hover: #2ea043;
+            --accent: #58a6ff;
+            --font-base: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-base);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Container Principal: Layout de 2 Colunas */
+        .wrapper {
+            display: flex;
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            max-width: 1000px;
+            width: 100%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            border: 1px solid #30363d;
+        }
+
+        /* Coluna Esquerda: Formulário */
+        .form-section {
+            flex: 1.2;
+            padding: 40px 50px;
+        }
+
+        /* Coluna Direita: Imagem do Professor */
+        .image-section {
+            flex: 0.8;
+            position: relative;
+            background-color: #000;
+        }
+
+        .image-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center; /* Garante que o rosto não seja cortado */
+            opacity: 0.9;
+        }
+
+        /* Tag de Identificação na Imagem */
+        .author-tag {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(13, 17, 23, 0.85);
+            backdrop-filter: blur(5px);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .author-tag h3 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 3px;
+        }
+
+        .author-tag p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Estilos Internos do Formulário */
+        .header-form {
+            margin-bottom: 25px;
+        }
+
+        .header-form h1 {
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+
+        .header-form p {
+            color: var(--primary-hover);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .sales-copy {
+            background-color: rgba(88, 166, 255, 0.05);
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            border-left: 3px solid var(--accent);
+            color: #e6edf3;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #e6edf3;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: var(--bg-dark);
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: var(--text-main);
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.1);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin: 25px 0;
+            background-color: rgba(35, 134, 54, 0.08);
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid rgba(35, 134, 54, 0.4);
+        }
+
+        .checkbox-group input {
+            margin-top: 3px;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            font-size: 0.85rem;
+            color: #e6edf3;
+            margin-bottom: 0;
+            cursor: pointer;
+            line-height: 1.4;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Responsividade para Celulares e Tablets */
+        @media (max-width: 850px) {
+            .wrapper {
+                flex-direction: column-reverse; /* A foto vai para cima no celular */
+            }
+            .form-section {
+                padding: 30px 20px;
+            }
+            .image-section {
+                height: 300px; /* Define uma altura fixa para a imagem no celular */
+            }
+            .author-tag {
+                bottom: 15px;
+                left: 15px;
+                right: 15px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        
+        <!-- Lado Esquerdo: Formulário -->
+        <div class="form-section">
+            <div class="header-form">
+                <h1>Codexplorer: Git e GitHub</h1>
+                <p>De R$ 97,00 por apenas R$ 49,90</p>
+            </div>
+
+            <div class="sales-copy">
+                <strong>Sente ansiedade ao usar o terminal?</strong> O medo de perder seu código é real, mas não precisa ser assim. 
+                Preencha o formulário para garantir sua vaga com este desconto exclusivo. <br><br>
+                <small><em>* Você não pagará nada agora. O link de pagamento será enviado em breve para o seu e-mail.</em></small>
+            </div>
+
+            <!-- Lembre-se de colocar seu código do Formspree no 'action' abaixo -->
+            <form action="https://formspree.io/f/mgavwzlv" method="POST">
+                
+                <div class="form-group">
+                    <label for="nome">Nome Completo (Para o certificado)</label>
+                    <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail Principal</label>
+                    <input type="email" id="email" name="email" required placeholder="Onde você receberá o acesso">
+                </div>
+
+                <div class="form-group">
+                    <label for="whatsapp">WhatsApp (Opcional)</label>
+                    <input type="text" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000">
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="aceite" name="aceite_promocao" required>
+                    <label for="aceite">Entendo que o valor promocional é R$ 49,90 e aguardo o envio do link de pagamento por e-mail para efetivar a inscrição.</label>
+                </div>
+
+                <button type="submit" class="btn-submit">Garantir Minha Vaga e Desconto</button>
+                
+            </form>
+        </div>
+
+        <!-- Lado Direito: Imagem do Professor -->
+        <div class="image-section">
+            <!-- A imagem que você forneceu sendo chamada aqui -->
+            <img src="cvasconcelos.jpg" alt="Prof. Me. Carlos Eduardo de A. Vasconcelos Jr">
+            
+            <div class="author-tag">
+                <h3>Prof. Me. Carlos Eduardo</h3>
+                <p>Mais de 25 anos de experiência no mercado de TI e docência.</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
