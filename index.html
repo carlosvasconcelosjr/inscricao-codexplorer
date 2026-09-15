@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrição - Codexplorer</title>
+    <style>
+        :root {
+            --bg-dark: #0d1117;
+            --bg-card: #161b22;
+            --text-main: #c9d1d9;
+            --primary-color: #238636;
+            --primary-hover: #2ea043;
+            --accent: #58a6ff;
+            --font-base: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-base);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .form-container {
+            background-color: var(--bg-card);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .header-form {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header-form h1 {
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .header-form p {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .sales-copy {
+            background-color: rgba(88, 166, 255, 0.1);
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            border-left: 4px solid var(--accent);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--bg-dark);
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: var(--text-main);
+            font-family: inherit;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 30px;
+            background-color: rgba(35, 134, 54, 0.1);
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid var(--primary-color);
+        }
+
+        .checkbox-group input {
+            margin-top: 4px;
+        }
+
+        .checkbox-group label {
+            font-size: 0.9rem;
+            color: #ffffff;
+            margin-bottom: 0;
+            cursor: pointer;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--primary-hover);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <div class="header-form">
+            <h1>Codexplorer: Git e GitHub</h1>
+            <p>De R$ 97,00 por apenas R$ 49,90</p>
+        </div>
+
+        <div class="sales-copy">
+            <strong>Você sente ansiedade ao usar o terminal?</strong> O medo de perder seu código é real, mas não precisa ser assim. 
+            Preencha o formulário abaixo para garantir sua vaga com desconto exclusivo. <em>Atenção: Você não pagará nada agora. O link de pagamento será enviado em breve.</em>
+        </div>
+
+        <!-- O formulário aponta para o Formspree para capturar os dados -->
+        <form action="https://formspree.io/f/mgavwzlv" method="POST">
+            
+            <div class="form-group">
+                <label for="nome">Nome Completo (Para o certificado)</label>
+                <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo">
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail Principal</label>
+                <input type="email" id="email" name="email" required placeholder="Onde você receberá o link de pagamento">
+            </div>
+
+            <div class="form-group">
+                <label for="whatsapp">WhatsApp (Opcional)</label>
+                <input type="text" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000">
+            </div>
+
+            <div class="form-group">
+                <label for="dificuldade">Qual sua maior dificuldade com Git hoje?</label>
+                <textarea id="dificuldade" name="dificuldade" rows="3" placeholder="Ex: Medo de dar conflito no código..."></textarea>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="aceite" name="aceite_promocao" required>
+                <label for="aceite">Entendo que o valor promocional é R$ 49,90 e aguardo o envio do link de pagamento por e-mail para efetivar a inscrição.</label>
+            </div>
+
+            <button type="submit" class="btn-submit">Garantir Minha Vaga e Desconto</button>
+            
+        </form>
+    </div>
+
+</body>
+</html>
